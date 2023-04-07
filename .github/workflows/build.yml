@@ -1,5 +1,7 @@
 name: learn-github-actions
 on: [push]
+permissions:
+  contents: write
 jobs:
   linux-build:
     runs-on: ubuntu-latest
