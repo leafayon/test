@@ -9,7 +9,15 @@ jobs:
         with:
           crystal: 1.7
       - run: crystal build test.cr -o Test --release
-      - uses: johnwbyrd/update-release@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: Test
+      uses: joutvhu/create-release@v1
+      with:
+        tag_name: v1.0.0
+        name: Release v1.0.0
+        body: |
+          Changes in this Release
+          - First Change
+          - Second Change
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
