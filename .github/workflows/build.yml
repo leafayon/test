@@ -1,0 +1,14 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  linux-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.7
+      - run: crystal build test.cr -o Test --release
+      uses: johnwbyrd/update-release@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: Test
