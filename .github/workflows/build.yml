@@ -9,6 +9,7 @@ jobs:
         with:
           crystal: 1.7
       - run: crystal build test.cr -o Test --release
+      - uses: actions/checkout@v3
       - uses: joutvhu/create-release@v1
         with:
           tag_name: v1.0.0
