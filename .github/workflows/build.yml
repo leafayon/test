@@ -16,3 +16,5 @@ jobs:
         with:
           files: |
             ./Test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
