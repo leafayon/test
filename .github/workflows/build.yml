@@ -10,15 +10,10 @@ jobs:
           crystal: 1.7
       - run: crystal build test.cr -o Test --release
       - uses: actions/checkout@v3
-      - uses: joutvhu/create-release@v1
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: v1.0.0
-          name: Release v1.0.0
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            Release.txt
+            LICENSE
