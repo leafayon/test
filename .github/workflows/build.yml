@@ -18,5 +18,3 @@ jobs:
           tag_name: v1.0.0
           files: |
             Test
-        env:
-          GITHUB_REPOSITORY: SubeCraft/test
